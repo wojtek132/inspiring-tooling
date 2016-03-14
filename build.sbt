@@ -34,3 +34,5 @@ scalacOptions ++= Seq("-Xfatal-warnings", "-feature", "-Ybackend:GenBCode", "-Yd
 resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
 
 routesGenerator := InjectedRoutesGenerator
+
+herokuAppName in Compile := "calm-stream-23878"
