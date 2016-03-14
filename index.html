@@ -220,7 +220,6 @@ jdk:
 						<li>Sign Up with GitHub account</li>
 						<li>Authorize</li>
 						<li>Create a room / Repository</li>
-						<li>Use automatically added badge (its useful, but need write permissions)</li>
 					</ul>
 
 					<aside class="notes">
@@ -231,19 +230,14 @@ jdk:
 				<section>
 					<h3>Create badge</h3>
 
-
 					<pre><code>
 [![Build status at https://travis-ci.org/org/repo](https://travis-ci.org/org/repo.svg)](https://travis-ci.org/org/repo)
-					</code></pre>
-					
-
+					</code></pre>				
 
 					<aside class="notes">
 						
 					</aside>
 				</section>
-
-
 
 				<section>
 					<h2>now to the deploy....</h2>
@@ -259,6 +253,92 @@ jdk:
 
 				</section>
 
+				<section>
+					<h3>Heroku</h3>
+
+					<ul>
+						<li><a href="https://www.heroku.com/">www.heroku.com/</a></li>
+						<li>Finish signing up process</li>
+					</ul>
+
+					<aside class="notes">
+						
+					</aside>
+				</section>
+
+
+
+				<section>
+					<pre><code>
+wget -qO- https://toolbelt.heroku.com/install.sh | sh
+echo 'PATH="/usr/local/heroku/bin:$PATH"' >> ~/.profile
+source ~/.profile
+sudo yum install ruby
+heroku --version
+					</code></pre>
+				</section>
+
+				<section>
+					<pre><code>
+$ heroku create -n
+Creating obscure-sierra-7788... done, stack is cedar-14
+http://obscure-sierra-7788.herokuapp.com/ | git@heroku.com:obscure-sierra-7788.git
+					</code></pre>
+				</section>
+				
+				<section>
+					<a href="https://gist.github.com/pdolega/a60dd409b8733d3d727b">https://gist.github.com/pdolega/a60dd409b8733d3d727b</a>
+					<br/>
+					<a href="https://gist.github.com/pdolega/2e05eb49f42a86fe8522">https://gist.github.com/pdolega/2e05eb49f42a86fe8522</a>
+					<br/>
+
+					And now...
+					<pre><code>
+npm install // if you didn't do it before
+./activator stage deployHeroku
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Go to the link...</h3>
+
+					And now wat ?
+					<pre><code>
+heroku logs -a polar-wave-79703
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Twitter access</h3>
+
+					<ul>
+						<li>Look at conf/application.conf</li>
+						<li>http://apps.twitter.com/ - register</li>
+						<li>URL needs to start with http(s)://; also you need to verify with your phone num</li>
+						<li>Setup security tokens on heroku - Settings</li>
+						<li>Restart your app</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Something more lively</h3>
+
+					<ul>
+						<li>Add var: TWITTER_FILTER_KEYWORD with value `java`</li>
+						<li>Restart your app</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Now CD part - integrate Heroku with Travis</h3>
+
+					<ul>
+						<li>Heroku - your profile, API KEY</li>
+						<li>Travis - create variable named: HEROKU_API_KEY with this value</li>
+						<li><a href="https://gist.github.com/pdolega/ee9786db69ed98ba41ae">.travis.yml - deploy section</a></li>
+						<li>Push everything to master or PR</li>
+					</ul>
+				</section>
 
 				<section data-background="img/other-tools.png" data-background-size="40%">
 				</section>
