@@ -1,6 +1,6 @@
 # inspiringsolutions-tooling
 
-<< badges placeholder >>
+[![Build status at https://travis-ci.org/org/repo](https://travis-ci.org/org/repo.svg)](https://travis-ci.org/org/repo)
 
 ## What is this
 
