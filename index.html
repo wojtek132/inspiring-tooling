@@ -44,7 +44,7 @@
 					<h3>How to leverage widely available, high-quality and free tools to help you develop software like a boss</h3>
 					<br/><br/>
 					<p>
-						<small>Created by <a href="https://mestudent.com">MeStudent</a> / <a href="http://twitter.com/MeStudentTech">@MeStudentTech</a></small><br/>
+						<small>Created by <a href="http://www.mestudent.com">MeStudent</a> / <a href="http://twitter.com/MeStudentTech">@MeStudentTech</a></small><br/>
 						<small>Pawel Dolega / <a href="http://twitter.com/pdolega">@pdolega</a></small><br/>
 						<small>Michal Tomanski / <a href="http://twitter.com/michaltomanski">@michaltomanski</a></small><br/>
 					</p>
@@ -266,7 +266,11 @@ jdk:
 					</aside>
 				</section>
 
+				<section>
+					<h3>Toolbelt</h3>
 
+					<a href="https://toolbelt.heroku.com/">https://toolbelt.heroku.com/</a>
+				</section>
 
 				<section>
 					<pre><code>
@@ -340,242 +344,41 @@ heroku logs -a polar-wave-79703
 					</ul>
 				</section>
 
-				<section data-background="img/other-tools.png" data-background-size="40%">
+				<section>
+					<h3>Last piece of the puzzle - quality</h3>
+				</section>
+
+				<section data-background="img/codacy.png" data-background-size="40%">
+				</section>				
+
+				<section>
+					<h3>Codacy</h3>
+
+					<ul>
+						<li>sbt <a href="https://gist.github.com/pdolega/0ddc629475b0c19fd1fc">https://gist.github.com/pdolega/0ddc629475b0c19fd1fc</a></li>
+						<li>.travis.yml <a href="https://gist.github.com/pdolega/48ae7b282daa4397eb75">https://gist.github.com/pdolega/48ae7b282daa4397eb75</a></li>
+						<li>Add variable to Travis (go user / API token on CODACY); variable CODACY_PROJECT_TOKEN
+					</ul>
 				</section>
 
 				<section>
-					<h2>What is graph database model composed of?</h2>
-					<ul>
-						<li>Vertices</li>
-						<li>Edges</li>
-						<li>Properties</li>
-					</ul>
+					<h3>Badge</h3>
+					Go to settings - copy badge URL, paste to README.MD
 				</section>
 				
 				<section>
-					<h2>Vertex</h2>
-
-					Vertex corresponds to relation in relational model. <br/>
-					It's primary container for keeping information chunks.<br/>
-
-					In short: Entity
-
-					<aside class="notes">
-					</aside>
-				</section>
-
-				<section>
-					<h2>Edge</h2>
-
-					Edge forms <b>direct</b> relationship between vertices. It's basically the <i>thing</i> that allows all the magic to happen *<br/>
-					It has direction and can have properties.
-
-					Edge is always seen on one vertex as outgoing (tail) whilst on the other vertex as incoming (head).<br/>
-
-					In short: Relationship
-
-					<br/><br/>
-
-					<p class="fragment">
-						* More on this crucial feature later
-					</p>
-
-					<aside class="notes">
-						In fact edge may be stored in the database in the same way as vertices. It depends on the implementation and whether you use
-						so called <i>lightweight edge</i> (a.k.a. link) or edge with properties.
-					</aside>
-				</section>
-
-				<section>
-					<h2>Property</h2>
-
-					Single piece of data.<br/>
-
-					Property can be a part of both vertex or edge.<br/>
-
-					In short: Attribute
-
-					<aside class="notes">
-						In fact edge may be stored in the database in the same way as vertices. It depends on the implementation and whether you use
-						so called <i>lightweight edge</i> or edge with properties.
-					</aside>
-				</section>
-
-				<section>
-					<h2>Structure of a vertex (OrientDb)</h2>
-					<pre><code>
-						{
-						  ...
-						  "_class_": "com.nexelem.nutstrap.play.model.ReductionMethod",
-						  "name": "Bateria cyklonów,elektrofiltr 99%",
-						  "enabled": false,
-						  "cost": 1.65,
-						  "description": "Bateria cyklonów,elektrofiltr 99%",
-						  "out_toxinsEdge": [
-						    "#9:580",
-						    "#9:581",
-						  ],
-						  "out_emitterSubtypeEdge": [
-						    "#9:92"
-						  ]
-						},
-					</code></pre>
+					<h3>Care to write small test ?</h3>
 					
-					<br/><br/>
-					<span>
-						Structure of vertex containing properties, edges and database specific parameters.
-					</span>
-					<br/>
-
-					<aside class="notes">
-						Mongo anyone ?
-					</aside>
-				</section>
-				
-				<section>
-					<h2>How to you interact with graph database ?</h2>
-
 					<ul>
-						<li style="text-decoration: line-through;">Custom vendor API (e.g. Cypher)</li>
-						<li style="text-decoration: line-through;">Custom 3rd party API (e.g. spring-data-neo4j, spring-data-orientdb)</li>
-						<li style="text-decoration: line-through;">Frames</li>
-						<li>Blueprints / Gremlin</li>
+						<li>test/TwitterStreamSpec.scala</li>
+						<li>you may use locally: 
+							<pre><code>./activator compile coverage test coverageReport codacyCoverage</code></pre>
+						</li>
+						<li>Maybe try to fix some code smell ? (try/catch vs Try)
 					</ul>
 				</section>
 
-				<section data-background="img/tinkerpop-splash.png" data-background-size="50%">
-				</section>
-
-				<section>
-					<h2>What's included ?</h2>
-
-					<ul>
-						<li><b>Blueprints</b> - collection of interfaces / implementations for the property graph data model. In short: JDBC, but for graph databases.</li><br/>
-
-						<li><b>Pipes</b> - lazy, data flow framework</li>
-						<li><b>Gremlin</b> - graph traversal language</li><br/>
-
-						<li>Frames - object-to-graph mapper</li>
-						<li>Furnace - graph algorithms package</li>
-						<li>Rexster - graph server - exposing both REST API &amp; Gremlin console (Dog House)</li>
-					</ul>
-
-					<aside class="notes">
-						Examples of Furnace algorithms ?
-					</aside>
-				</section>
-
-				<section data-background="img/rexster-system-arch.png" data-background-size="35%">
-
-				</section>
-
-				<section>
-					<h2>Code samples - vanilla blueprints</h2>
-				</section>
-
-				<section>
-					<h2>What is graph database - closer look</h2>
-				</section>
-
-				<section data-background="img/vertex_bag.png" data-background-size="100%">
-					<aside class="notes">
-						Heterogenic bags of vertices - no-schema. How to make it all tidy ?
-					</aside>
-				</section>
-
-				<section>
-					<h2>Blueprints from scala perspective</h2>
-
-					<p>
-						<a href="https://github.com/anvie/blueprints-scala">blueprints-scala</a>
-					</p>
-				</section>
-
-				<section>
-					<h2><u>Index-free adjacency</u></h2>
-				</section>
-
-				<section data-background="img/relational_db_simple.png" data-background-size="100%">
-
-				</section>
-
-				<section data-background="img/relational_db_simple-key.png" data-background-size="100%">
-					<aside class="notes">
-						You need to execute JOIN here to actually use this connection. If you'd like to have
-						some attributes associated with connection itself what you'd need to do probably is
-						to create some table in between and to model the association with another table
-						(meaning also another JOIN).
-					</aside>
-				</section>
-
-				<section data-background="img/relational_db_advanced.png" data-background-size="75%">
-
-				</section>
-
-				<section>
-					<h2>JOINs explosion !</h2>
-
-					<p>
-						Then comes denormalization and stuff to make your model more edible.
-					</p>
-				</section>
-
-				<section>
-					<h2>Whereas..</h2>
-
-					<p>
-						GraphDB handles relationships as a physical LINK to the record assigned when the edge.
-					</p>
-
-					<p>
-						This means jumping from a O(log N) algorithm to a near O(1). <b>Traversing cost is not more affected by database size!</b>
-					</p>
-				</section>
-
-				<section>
-					<p>
-						In GraphDb traversal (JOINs) is high-performance operation.
-					</p>
-				</section>
-
-				<section>
-					<h2>Deﬁning a Graph Database (again)</h2>
-					A graph database is any storage system that provides index-free adjacency.
-				</section>
-
-				<section>
-					<h2>Root vertices</h2>
-
-					<p>Start traversal as soon as possible</p>
-				</section>
-
-				<section data-background="img/Typical-orb-web-photo.jpg" data-background-size="100%"></section>
-
-				<section>
-					<h2>Gremlin</h2>
-
-					<p>
-						<a href="https://github.com/mpollmeier/gremlin-scala">gremlin-scala</a>
-					</p>
-				</section>
-
-				<section>
-					<h2>More....</h2>
-					<ul>
-						<li>Schema-full vs schema-less vs schema-mixed models</li>
-						<li>Clustering</li>
-						<li>OrientDB specifics (which is quite a big subject on its own)</li>
-					</ul>
-				</section>
-
-				<section>
-					<ul>
-						<li><a href="https://www.udemy.com/orientdb-getting-started/">https://www.udemy.com/orientdb-getting-started/</a></li>
-						<li><a href="http://gremlindocs.com/">http://gremlindocs.com/</a></li>
-						<li><a href="http://sql2gremlin.com/">http://sql2gremlin.com/</a></li>
-						<li><a href="http://www.amazon.com/Graph-Databases-Ian-Robinson/dp/1449356265/ref=sr_1_1?ie=UTF8&qid=1429536728&sr=8-1&keywords=graph+database">Graph Databases</a> by Ian Robinson, Jim Webber, Emil Eifrem (ch. 6)</li>
-						<li><a href="https://github.com/nexelem/graphs-gremlins">https://github.com/nexelem/graphs-gremlins</a></li>
-					</ul>
+				<section data-background="img/other-tools.png" data-background-size="40%">
 				</section>
 
 				<section>
@@ -586,7 +389,7 @@ heroku logs -a polar-wave-79703
 					<h1>Thank you</h1>
 
 					<p>
-						https://github.com/nexelem/graphs-gremlins
+						http://www.mestudent.com
 					</p>
 				</section>
 			</div>
