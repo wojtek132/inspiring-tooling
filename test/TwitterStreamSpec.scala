@@ -22,33 +22,38 @@ class TwitterStreamSpec extends TestKit(ActorSystem("TwitterStreamSpec")) with D
   val random = new Random()
 
   "socket actor" must {
-    "receive a message containing `java` and `scala`" in {
-      val testTweet = generateTweet("Why use java, when you have scala?\r\n", "mtomanski")
-      val application = generateAppWithTweets(testTweet)
-      val socketRef = TestProbe()
+    "first test" in {
+      // val testTweet = generateTweet(<<some values>>)
+      //val application = generateAppWithTweets(testTweet)
 
-      running(application) {
-        val socketActor = system.actorOf(WebSocketActor.props(socketRef.ref, Option("scala")))
+      // this is how you set up probe as WebSocketActor
+      //      val socketRef = TestProbe()
 
-        val msg = socketRef.receiveOne(10.seconds).asInstanceOf[String]
-        msg.toLowerCase.contains("java") should be(true)
-        msg.toLowerCase.contains("scala") should be(true)
-      }
+      //      running(application) {
+      //        val socketActor = system.actorOf(WebSocketActor.props(socketRef.ref, Option(<<Keyword>>)))
+
+      // operation on socketRef - e.g expectMsg, receiveWhile, receiveOne
+
+      // example check
+      //msgs.size should be(0)
+      //      }
     }
 
-    "must not get message without given word" in {
-      val testTweet = generateTweet("No text", "mtomanski")
-      val application = generateAppWithTweets(testTweet)
-      val socketRef = TestProbe()
+    "another test" in {
+      // val testTweet = generateTweet(<<some values>>)
+      //val application = generateAppWithTweets(testTweet)
 
-      running(application) {
-        val socketActor = system.actorOf(WebSocketActor.props(socketRef.ref, Option("scala")))
+      // this is how you set up probe as WebSocketActor
+//      val socketRef = TestProbe()
 
-        val msgs = socketRef.receiveWhile(3.seconds) {
-          case msg: Any => true
-        }
-        msgs.size should be(0)
-      }
+//      running(application) {
+//        val socketActor = system.actorOf(WebSocketActor.props(socketRef.ref, Option(<<Keyword>>)))
+
+        // operation on socketRef - e.g expectMsg, receiveWhile, receiveOne
+
+        // example check
+        //msgs.size should be(0)
+//      }
     }
   }
 
