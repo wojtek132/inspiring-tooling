@@ -1,6 +1,6 @@
 # inspiringsolutions-tooling
 
-[![Build status at https://travis-ci.org/org/repo](https://travis-ci.org/org/repo.svg)](https://travis-ci.org/org/repo)
+[![Build status at https://travis-ci.org/wojtek132/inspiring-tooling](https://travis-ci.org/wojtek132/inspiring-tooling.svg)](https://travis-ci.org/wojtek132/inspiring-tooling)
 
 ## What is this
 
